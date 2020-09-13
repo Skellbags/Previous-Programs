@@ -1,0 +1,15 @@
+In this run, notice that I try to convert the input() string
+into a float, and the program doesn't crash if the number is bad.
+
+Height:   1000 Speed:      0 Fuel:   1000
+Burn amount: banana
+Oops!  That was not a valid number.  Try again...
+Burn amount:
+Oops!  That was not a valid number.  Try again...
+Burn amount: 0
+
+Height:    998 Speed:      2 Fuel:   1000
+Burn amount: 0
+
+Height:    995 Speed:      3 Fuel:   1000
+Burn amount:

@@ -1,0 +1,10 @@
+Year,Balance,Explanation
+1996,1001100.0,Inherited money from uncle
+,1996,1001100.0,Inherited money from uncle
+,1996,1001100.0,Inherited money from uncle
+,1996,1001100.0,Inherited money from uncle
+,1996,1001100.0,Inherited money from uncle
+,1996,1001100.0,Inherited money from uncle
+,1996,1001100.0,Inherited money from uncle
+,1996,1001100.0,Inherited money from uncle
+,

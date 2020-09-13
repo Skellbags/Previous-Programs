@@ -1,0 +1,43 @@
+Height:   1000 Speed:      0 Fuel:   1000
+Burn amount: 0
+
+Height:    998 Speed:      2 Fuel:   1000
+Burn amount: 0
+
+... I do no burns until I'm really close ... (some output omitted)
+
+Height:    138 Speed:     52 Fuel:   1000
+Burn amount: 200
+
+Height:     94 Speed:     44 Fuel:    800
+Burn amount: 400
+
+Height:     70 Speed:     23 Fuel:    400
+Burn amount: 200
+
+Height:     60 Speed:     11 Fuel:    200
+Burn amount: 60
+
+Height:     52 Speed:      7 Fuel:    140
+Burn amount: 20
+
+Height:     45 Speed:      7 Fuel:    120
+Burn amount: 20
+
+Height:     38 Speed:      7 Fuel:    100
+Burn amount: 20
+
+Height:     31 Speed:      7 Fuel:     80
+Burn amount: 20
+
+Height:     25 Speed:      7 Fuel:     60
+Burn amount: 20
+
+Height:     18 Speed:      6 Fuel:     40
+Burn amount: 20
+
+Height:     12 Speed:      6 Fuel:     20
+Burn amount: 20
+
+Height:      7 Speed:      6 Fuel:      0
+Tranquility base.  The eagle has landed.

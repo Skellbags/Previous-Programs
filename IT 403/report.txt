@@ -1,0 +1,19 @@
+1)De Facto Standards(Flexible) is defined as the widely excepted rules of creating a method or
+product. For instance, HTML is de facto, because almost all websites are comprised of and use
+HTML. They don't have to be, but because HTML is userfriendly and easy to learn, It has
+become the publicly accepted markup language. 
+
+2)De Jure Standards(Non-flexible) is defined as the established method or product that has to
+be used or operated in a specific way. For instance, TCP/IP is the de jure protocol that is used
+to govern over all computers that connect to the Internet. All computers that can connect to the 
+internet have to use TCP/IP, because it is how the internet is run, and there is no other.
+ 
+3)I chose The World Wide Web Consortium for the standards body. The W3C is an international
+organization that develops Web standards. It is lead and run by Tim Berners-Lee, The inventor
+of the internet. To be able to join as a paid staff member, you have to commit W3C 
+80% of your time for a typical period of 18-24 months, as well as "possess insight, tact, technical
+understanding, and the ability to follow things through". Also you have to be able to fluently
+read, write, and speak English. W3C does have some leverage over most of internet due to the
+credibility of its director, Tim Berners-Lee. Since he is the father of the internet, and has had the
+longest relationship with the internet, most believe that he is the most knowlegeble on the
+matter.

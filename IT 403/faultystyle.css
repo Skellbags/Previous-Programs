@@ -1,0 +1,101 @@
+h1, h2, h3, h4, h5, h6, p{
+	margin:0px;
+}
+.as04{
+	background-image:url(Images/d2-banner.jpg);
+	background-size:cover;
+}
+.as04 > body{
+	background-color:rgba(100, 100, 100, 0.5);
+	font-family: 'Open Sans', sans-serif;
+	color:#FFFFFF;
+	width:80%;
+	margin:0px auto;
+	padding:40px 60px;
+	font-size:20pt;
+}
+.as04 #nav, .as04 #body{
+	border-bottom:1px solid #FFFFFF;
+	padding:0px 0px;
+	margin-bottom:30px;
+}
+.as04 a:link{
+	text-decoration:none;
+	color:#FFFFFF;
+}
+.as04 a:visited{
+	text-decoration:none;
+	color:#FFFFFF;
+}
+.as04 a:hover{
+	text-decoration:underline;
+	color:#FF0000;
+}
+html{
+	background-color:#ff7f7f;
+}
+body{
+	background-color:#FFFFFF;
+	font-family: 'Open Sans', sans-serif;
+	color:#000000;
+	width:80%;
+	margin:0px auto;
+	padding:40px 60px;
+	font-size:20pt;
+}
+#nav, #body{
+	border-bottom:1px solid #000000;
+	padding:0px 0px;
+	margin-bottom:30px;
+}
+#footer{
+	padding:10px 0px;
+	font-size:20px;
+}
+#header, #nav, #footer{
+	text-align:center;
+}
+a:link{
+	text-decoration:none;
+	color:#000000;
+}
+a:visited{
+	text-decoration:none;
+	color:#000000;
+}
+a:hover{
+	text-decoration:underline;
+	color:red;
+}
+#nav li{
+	display:inline;
+	padding:25px;
+	font-size:20px;
+}
+.title{
+	text-align:center;
+	font-size:90px;
+	font-family: 'Staatliches', cursive;
+}
+.subtitle{
+	text-decoration:underline;
+	font-family: 'Staatliches', cursive;
+}
+.titlepic{
+	text-align:center;
+} 
+.headerandtext{
+	padding-bottom:40px;
+}
+.title2{
+	font-family: 'Staatliches', cursive;
+	text-align:center;
+}
+.titlepic > img{
+	width:30%;
+}
+.makermark{
+	margin-top:-15px;
+	width:5%;
+	float:right;
+}

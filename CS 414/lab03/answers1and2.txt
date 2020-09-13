@@ -1,0 +1,13 @@
+Type your answers to questions 1 and 2 here, and turn in this file.
+
+1: a)The largest integer that can be used as an exponent is 1023
+
+   b)n is a variable that is automatically an integer, and doesnt come out as a float, when used with a float.
+
+2:shouldBeTrue when printed comes out false because it is trying to compair an string# with a float. 
+Python does not like it when you do things with strings and integers together, This is shown in the second example
+when you subtract 2 from two. Python does do the subtraction, however there is a tiny error that occurs where
+python doesnt round the number and leaves it in its unsimplified form, which is the same reason why shouldBeTrue 
+comes out false
+
+#RS
