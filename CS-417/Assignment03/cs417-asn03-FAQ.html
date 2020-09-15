@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>cs417-asn03-FAQ</title>
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+html {
+font-size: 100%;
+overflow-y: scroll;
+-webkit-text-size-adjust: 100%;
+-ms-text-size-adjust: 100%;
+}
+body {
+color: #111;
+font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+font-size: 11px;
+line-height: 1.2;
+padding: 1em;
+margin: auto;
+max-width: 82em;
+background: #fefefe;
+}
+a {
+color: #0645ad;
+text-decoration: none;
+}
+a:visited {
+color: #0b0080;
+}
+a:hover {
+color: #06e;
+}
+a:active {
+color: #faa700;
+}
+a:focus {
+outline: thin dotted;
+}
+*::-moz-selection {
+background: rgba(255, 255, 0, 0.3);
+color: #000;
+}
+*::selection {
+background: rgba(255, 255, 0, 0.3);
+color: #000;
+}
+a::-moz-selection {
+background: rgba(255, 255, 0, 0.3);
+color: #0645ad;
+}
+a::selection {
+background: rgba(255, 255, 0, 0.3);
+color: #0645ad;
+}
+p {
+margin: 1em 0;
+}
+img {
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+color: #111;
+line-height: 100%;
+margin-top: 1em;
+font-weight: normal;
+}
+h4, h5, h6 {
+font-weight: bold;
+}
+h1 {
+font-size: 2.5em;
+}
+h2 {
+font-size: 1.3em;
+}
+h3 {
+font-size: 1em;
+}
+h4 {
+font-size: 1em;
+}
+h5 {
+font-size: 1em;
+}
+h6 {
+font-size: 0.9em;
+}
+blockquote {
+color: #666666;
+margin: 0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr {
+display: block;
+height: 2px;
+border: 0;
+border-top: 1px solid #aaa;
+border-bottom: 1px solid #eee;
+margin: 1em 0;
+padding: 0;
+}
+pre, code, kbd, samp {
+color: #000;
+font-family: monospace, monospace;
+_font-family: 'courier new', monospace;
+font-size: 0.98em;
+}
+pre {
+white-space: pre;
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+b, strong {
+font-weight: bold;
+}
+dfn {
+font-style: italic;
+}
+ins {
+background: #ff9;
+color: #000;
+text-decoration: none;
+}
+mark {
+background: #ff0;
+color: #000;
+font-style: italic;
+font-weight: bold;
+}
+sub, sup {
+font-size: 75%;
+line-height: 0;
+position: relative;
+vertical-align: baseline;
+}
+sup {
+top: -0.5em;
+}
+sub {
+bottom: -0.25em;
+}
+ul, ol {
+margin: 1em 0;
+padding: 0 0 0 2em;
+}
+li p:last-child {
+margin-bottom: 0;
+}
+ul ul, ol ol {
+margin: .3em 0;
+}
+dl {
+margin-bottom: 1em;
+}
+dt {
+font-weight: bold;
+margin-bottom: .8em;
+}
+dd {
+margin: 0 0 .8em 2em;
+}
+dd:last-child {
+margin-bottom: 0;
+}
+img {
+border: 0;
+-ms-interpolation-mode: bicubic;
+vertical-align: middle;
+}
+figure {
+display: block;
+text-align: center;
+margin: 1em 0;
+}
+figure img {
+border: none;
+margin: 0 auto;
+}
+figcaption {
+font-size: 0.8em;
+font-style: italic;
+margin: 0 0 .8em;
+}
+table {
+margin-bottom: 2em;
+border-bottom: 1px solid #ddd;
+border-right: 1px solid #ddd;
+border-spacing: 0;
+border-collapse: collapse;
+}
+table th {
+padding: .2em 1em;
+background-color: #eee;
+border-top: 1px solid #ddd;
+border-left: 1px solid #ddd;
+}
+table td {
+padding: .2em 1em;
+border-top: 1px solid #ddd;
+border-left: 1px solid #ddd;
+vertical-align: top;
+}
+.author {
+font-size: 1.2em;
+text-align: center;
+}
+@media only screen and (min-width: 480px) {
+body {
+font-size: 14px;
+}
+}
+@media only screen and (min-width: 768px) {
+body {
+font-size: 16px;
+}
+}
+@media print {
+* {
+background: transparent !important;
+color: black !important;
+filter: none !important;
+-ms-filter: none !important;
+}
+body {
+font-size: 12pt;
+max-width: 100%;
+}
+a, a:visited {
+text-decoration: underline;
+}
+hr {
+height: 1px;
+border: 0;
+border-bottom: 1px solid black;
+}
+a[href]:after {
+content: " (" attr(href) ")";
+}
+abbr[title]:after {
+content: " (" attr(title) ")";
+}
+.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+content: "";
+}
+pre, blockquote {
+border: 1px solid #999;
+padding-right: 1em;
+page-break-inside: avoid;
+}
+tr, img {
+page-break-inside: avoid;
+}
+img {
+max-width: 100% !important;
+}
+@page :left {
+margin: 10mm 10mm 10mm 10mm;
+}
+@page :right {
+margin: 10mm 10mm 10mm 10mm;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3 {
+page-break-after: avoid;
+}
+}
+</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="frequently-asked-questions-for-assignment-3">Frequently-asked Questions for Assignment #3</h1>
+<ol type="1">
+<li><p>Q: How do I get the words that the user typed as command-line arguments?</p>
+<p>A: You could join the words one at a time, with a space between them:</p>
+<pre><code>    text = &#39;&#39;
+    for word in sys.argv[1:]:
+        text += word + &#39; &#39;</code></pre>
+<p>Or you can let python do it for you:</p>
+<pre><code>    text = &#39; &#39;.join(sys.argv[1:])</code></pre></li>
+<li><p>Q: How do I create a two-dimensional array?</p>
+<p>A: It’s just an array of arrays:</p>
+<pre><code>    picture = []
+    for row_index in range(height):
+        picture.append([&quot; &quot;] * width)</code></pre></li>
+<li><p>Q: I’m confused. Why should I make an array of arrays? Can’t I just make an array of strings?</p>
+<p>A: You could, but it’s a bit awkward to replace one character in a string, because strings are immutable. You would have to make a fresh string using slices:</p>
+<pre><code>     picture[y] = picture[y][:x] + symbol + picture[y][x+1:]</code></pre>
+<p>whereas it’s easier with an array of arrays:</p>
+<pre><code>     picture[y][x] = symbol</code></pre></li>
+<li><p>Q: That’s weird. <code>picture[y][x]</code> ? Why not <code>picture[x][y]</code>?</p>
+<p>A: <code>picture</code> is an array of arrays. <code>picture[y]</code> is one row in that array. <code>picture[y][x]</code> is one entry in that row. The <code>[]</code> parentheses work left-to-right.</p></li>
+<li><p>Q: How do I get the blocks in the first place?</p>
+<p>A: They are in the file <code>matrix_5x7.txt</code> . Open that file, and read its lines. Some lines are 1-character symbols, and other lines are 5-character rows in a picture.</p>
+<p>You could call <code>readlines()</code>, and get all the lines, then walk through this list of lines. Each time you get a length-1 line, advance through the next 7 lines, and collect them into a block.</p>
+<p>Another way is to call <code>readline()</code> many times (note that <code>readline</code> != <code>readlines</code>) !!!. Here is example code that counts the lines in file. It creates an infinite loop (<code>while True:</code>), and exits the loop when a zero-length line is read (this happens at the end of the file).</p>
+<pre><code>   n_lines: int = 0
+   while True:
+       line: str = handle.readline()
+       if len(line) == 0:
+           break
+       n_lines += 1
+       line = line.rstrip(&quot;\r\n&quot;)
+   handle.close()</code></pre></li>
+<li><p>Q: So I have to go through the lines, get one (for the symbol), and then get 7 more (for the matrix). What’s a good way to do that?</p>
+<p>A: The simplest way is to call <code>.readline()</code> the correct number of times:</p>
+<pre><code>     while True:
+         line: str = handle.readline()
+         if len(line) == 0:
+             break
+         symbol = line.rstrip(&quot;\r\n&quot;)
+         line1 = handle.readline()
+         line2 = handle.readline()
+         line3 = handle.readline()
+         ...
+
+     handle.close()</code></pre></li>
+<li><p>Q: OK, I’ve just read one symbol, and 7 strings. How do I store these?</p>
+<p>A: This is a perfect case for using a dictionary:</p>
+<pre><code>     block: List[str] = [line1, line2, line3, line4, line5, line6, line7]
+     matrices[symbol] = block</code></pre></li>
+<li><p>Q: Will this work?</p>
+<pre><code>     for i in range(len(text)):
+         letter = text[i]
+         ... get the block for this letter ...
+         ... print the block ...</code></pre>
+<p>or similarly:</p>
+<pre><code>     letters = list(text)
+     for letter in letters:
+         ... get the block for this letter ...
+         ... print the block ...</code></pre>
+<p>A: No. If the text is <code>&quot;ABC&quot;</code>, you will get</p>
+<pre><code>       X
+      X X
+     X   X
+     X   X
+     XXXXX
+     X   X
+     X   X
+
+     XXXX
+     X   X
+     X   X
+     XXXX
+     X   X
+     X   X
+     XXXX
+
+      XXX
+     X   X
+     X
+     X
+     X
+     X   X
+      XXX</code></pre>
+<p>You can’t print a line, until you have gathered all the blocks for that line. You need to create a big rectangular picture, an array of “pixels”, some of which are spaces, some are <code>X</code>. <strong>Then</strong> you should print the whole picture.</p></li>
+<li><p>Q: If I have a 5 x 7 block, how do I figure out where its pixels are, in the picture?</p>
+<p>A: If you know the <code>text_row</code>, <code>text_col</code> of your block, you can use math. Each block is 6 wide, and 8 high (5+1, 7+1).</p>
+<p>You can figure out the block’s top-left pixel:</p>
+<pre><code>    top_left_x = text_col * 6
+    top_left_y = text_row * 8</code></pre>
+<p>Now, for each entry in the 5 x 7 block, you should add to <code>top_left_x</code> and <code>top_left_y</code> to get the entry’s <code>x</code> and <code>y</code> coordinates:</p>
+<pre><code>    pixel_x = top_left_x + x
+    pixel_y = top_left_y + y</code></pre></li>
+<li><p>Q: I’m confused by all those widths and heights.</p>
+<p>A: Remember that you are dealing with letters, <em>and</em> also with pixels.</p>
+<p><code>text_height</code> and <code>text_width</code> are how many rows and columns your text takes up.</p>
+<p>Example: if the message is <code>&quot;Hello World&quot;</code>, then <code>text_height</code> is 1, and <code>text_width</code> is 11.</p>
+<p>Example: if the message is <code>&quot;Hello World How are you&quot;</code>, then <code>text_height</code> is 2, and <code>text_width</code> is 13 (there are two rows of text, at most 13 columns wide).</p>
+<p>The <code>picture</code> is made up of pixels. Each letter takes up 5 pixels wide, plus 1, so 13 letters take up 6*12 + 5 = 77 pixels wide. So your picture should be 77 pixels wide.</p>
+<p>Each row of text takes up 7 rows of pixels, plus 1, so 3 rows of text would take up 2*7 + 6 = 20 rows of pixels. So, in that case, your picture would be a 2-dimensional array. It has 20 entries, and each entry is an array of 77 <code>&quot; &quot;</code> spaces.</p></li>
+</ol>
+</body>
+</html>

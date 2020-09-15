@@ -1,0 +1,111 @@
+import sys
+
+'''
+Here is a bit of code to get you started.
+
+Notice that I have created functions, which do one thing.
+Using functions in this way lets you write a main program that
+provides over-all structure, BEFORE you create the functioning pieces
+of your code.
+'''
+
+def get_text():
+    '''
+    Create and return a single string, using the words in sys.argv
+    Method: use " ".join(some list)
+    '''
+    return 'ABC'
+
+def get_blocks(filename):
+    '''
+    Open the file, and go through its lines.
+
+    Repeat this:
+       read one line: it's the character
+       read 7 lines: they make up the block
+       put the 7 lines in a list
+       store the list in blocks, keyed by character.
+    '''
+
+    blocks = dict()
+    # your code goes here
+
+    # Return all 95 blocks in the file.
+    return blocks
+
+def get_text_height(text):
+    '''
+    Figure out how many lines your text takes up
+    You have 13 letters per line, so "Hello World"
+    takes 1 line:
+    1234567890123
+    Hello World
+
+    But "Hello World how are you" takes 2:
+    1234567890123
+    Hello World h
+    ow are you
+
+    NOTE: The picture is made up of Xs and blanks,
+          and its height will be bigger than the text height!
+    '''
+    return 1
+
+def make_picture(text_height):
+    '''
+    Create and return 2D rectangular array of spaces.
+    These are the pixels in your banner.
+
+    From text_height, you must compute the number of
+    rows of pixels (the height of the PICTURE)
+    '''
+    picture = []
+    # your code goes here
+    return picture
+
+def print_picture(picture):
+    '''
+    Assemble each row in the picture (currently each row is a list of str),
+    and print them
+    Again, use "".join()
+    '''
+    # This code is wrong:
+    print (picture)
+
+def draw_letter(picture, letter, text_width, text_height,
+                text_row, text_col, blocks):
+    '''
+    Given a letter, and its position:
+       get its 5x7 block
+       set some entries in picture to 'X'
+       update text_col, and maybe text_row
+
+    At the end, you must tell the caller what text_row and text_col
+    are, since they have changed.
+    '''
+    # your code goes here
+
+    # Tell the caller where the next letter will be
+    return (text_row, text_col)
+
+def main():
+    '''
+    This function controls the whole process
+    '''
+
+    text = get_text()
+    blocks = get_blocks('matrix_5x7.txt')
+    text_height = get_text_height(text)
+    text_width = 13
+    picture = make_picture(text_height)
+    (text_row, text_col) = (0, 0)
+    for letter in text:
+        (text_row, text_col) = draw_letter(picture, letter,
+                                           text_width, text_height,
+                                           text_row, text_col,
+                                           blocks)
+    print_picture(picture)
+
+if __name__ == '__main__':
+    main()
+
