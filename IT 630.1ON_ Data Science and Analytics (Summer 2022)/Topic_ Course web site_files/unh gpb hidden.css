@@ -1,0 +1,163 @@
+@import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,300,700);
+
+/* updated on 1-19-16 by spo -- added 'b'. color and font-weight below  */
+body, b, input, button, select, textarea {
+	font-family:'source sans pro', helvetica neue, arial, helvetica, sans-serif;
+    color: #000000;
+    font-weight: 350;
+}
+
+body {
+    font-size:16px;
+}
+
+a {
+    color: #0044bb;
+    text-decoration: none;
+}
+
+a:focus, a:hover {
+    color: #003591;
+}
+
+.courses .info .links a, .groups .info .links a, .accounts .info .links a {
+    color: #f77a05;
+}
+
+.touch .course .course .info .links a, .touch .course .group .info .links a, .touch .course .account .info .links a, .touch .group .course .info .links a, .touch .group .group .info .links a, .touch .group .account .info .links a, .touch .account .course .info .links a, .touch .account .group .info .links a, .touch .account .account .info .links a, .course:hover .course .info .links a, .course:hover .group .info .links a, .course:hover .account .info .links a, .group:hover .course .info .links a, .group:hover .group .info .links a, .group:hover .account .info .links a, .account:hover .course .info .links a, .account:hover .group .info .links a, .account:hover .account .info .links a {
+    color: #d36122;
+}
+
+/* added on 1-19-16 by spo */
+.ic-app-header__menu-list-link {
+    color: #000000;
+}
+
+/* added on 1-19-16 by spo */
+.ic-app-course-menu {
+    color: #000000;
+}
+
+/* added on 1-19-16 by spo */
+.discussion {
+    color: #000000;
+}
+
+/* added on 1-19-16 by spo */
+.no-content.discussion {
+    color: #000000;
+}
+
+/* added on 1-19-16 by spo */
+.list-view>nav>ul>li>a {
+    color: #000000;
+}
+
+/* FAR LEFT SIDE NAVIGATION */
+
+.ic-app-header__logomark-container {
+	padding:0 20px;
+}
+
+.ic-app-header__logomark-container,
+.ic-app-header__menu-list-item.ic-app-header__menu-list-item--active .ic-app-header__menu-list-link {
+    background-color: rgba(0,0,0,.25);
+}
+
+.ic-app-header__menu-list-item.ic-app-header__menu-list-item--active .ic-icon-svg path {
+    fill: #f77a05;
+}
+
+body.primary-nav-expanded .ic-app-header__menu-list-item.ic-app-header__menu-list-item--active .menu-item__text {
+    color: #f77a05;
+}
+
+
+/* LEFT NAV */
+
+.list-view a.active {
+    background-color: #f77a05;
+    border-left: 2px solid #f77a05;
+    color: #ffffff;
+}
+
+.list-view a.active:hover, .list-view a.active:focus {
+    background-color: #d36122;
+}
+
+
+/* COURSES */
+
+.courses .details, .groups .details, .accounts .details {
+    color: #444;
+    font-size: 0.85em;
+    padding: 0 0 0 8px;
+    margin: 5px 0 5px 5px;
+    border-left: 3px solid #eee;
+}
+
+
+/* BUTTONS */
+
+.btn-primary, .Button--primary {
+    background: #0044bb;
+    border: none;
+}
+
+.btn-primary:hover, .Button--primary:hover {
+    background: #003591;
+}
+
+
+/* TABS */
+
+.ui-tabs .ui-tabs-nav li {
+    background: #f1f1f1;
+}
+
+/* updated from #333 on 1-19-16 by spo */
+.ui-tabs .ui-tabs-nav li a {
+    color: #000000;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active a {
+    color: #d36122;
+}
+
+/* SPEEDGRADER */
+.assignmentDetails__Info {
+	color: #ffffff;
+}
+
+
+/* HELP MENU LINKS */
+
+/* Hide "Ask the Community" */
+.ic-NavMenu-list-item__link[href="https://community.canvaslms.com/community/answers"],
+.ic-NavMenu-list-item__link[href="https://community.canvaslms.com/community/answers"] + .ic-NavMenu-list-item__helper-text {
+    display: none !important;
+}
+
+/* Hide "Submit a Feature Idea" */ 
+.ic-NavMenu-list-item__link[href="https://community.canvaslms.com/community/ideas/feature-ideas"],
+.ic-NavMenu-list-item__link[href="https://community.canvaslms.com/community/ideas/feature-ideas"] + .ic-NavMenu-list-item__helper-text {
+    display: none !important;
+}
+
+/*edit "View Privacy Policy" link -- spo 6/24/16*/
+a.footer-info[href="http://www.canvaslms.com/policies/privacy"]{
+    display: none;
+}
+
+/* hide add app button
+.AddExternalToolButton {
+    display: none !important;
+}*/
+
+
+/* This is the grade passback hide code. Remove the slash star and star slash around the code */
+/*
+#publish_grades_link {
+	display: none;
+}
+*/

@@ -1,0 +1,73 @@
+﻿NOTE: Hey Prof. Coleman, My group did this in google docs, and unfortunatly it is unable to output .doc files,
+if theres any issues with grading just shoot me an email, rjs1070@wildcats.unh.edu
+
+Ryan J. Skelly, Kambal Vaidya, James Msaddi                                                
+Network Specification Assignment
+IT 609 Network and System Administration
+Scenario 1 – Video Production Firm
+A digital video production house currently uses removable storage of various kinds to move projects from computer to computer.  The staff spend a lot of time physically making CD’s or DVD’s, or carting around removable hard drives or other large capacity storage devices when portions of projects need to be taken from one computer to another.  They would like to stop the time lost in all this plus eliminate the stacks of media they have to wade through.  One possible option is that there is a very high capacity, fast server available that could be used as a central repository for the digital materials they are creating and editing.  They would, however, have to connect that server to 20 editing and production workstations via a high-speed network.  5 minutes of video can easily equal a gigabyte of data.
+Summary Matrix:
+ 
+	Yes/No
+	 
+	 
+	Wired network?
+	 Yes
+	What standard?
+	 Ethernet
+	Wireless network?
+	 Yes
+	Cable type?
+	 Cat 6 or better
+	Are there any other important factors or technologies needed?
+Yes, there would have to be a server for containing all of the files, and it would have to be configured for FTP. The clients would ssh into the FTP server and scp the files needed. In lieu of the previous recommendation, a FTP browser could make it easier for the clients to use if they had problems adjusting to the CLI environment.
+
+
+Justification:
+        An Ethernet connection would likely provide sufficient performance at the lowest cost. So, if you are on a budget or and do not want to use the more expensive Fast Ethernet or Gigabit Ethernet this would be a good option for you. A little more money can be spent on fast Ethernet or Gigabit Ethernet if that is what is wanted as well. Either way, be sure to install cable that would support either such as Category 6. That way in the future if the network ever needed an easy upgrade without the need to redo the wiring. With older models of ethernet some are not worth it today even with price being cheaper performance does not always live up to the price. 
+        Along with ethernet, the use of SSH or similar(Telnet) would allow the clients to be able to login from virtually anywhere. There would only have to be two profiles set up on the device, one administrator(root) account that would control updating the system, and managing partitions of new storage devices. The second would be the client download account which would be able to access all of the main files, create directories and delete files. Actually setting up the FTP server would be free(not regarding the price of the server itself).
+        One alternative would be having the clients use thin clients to RDP into a much larger server and do all of their tasks there. This would require more processing power server side and wouldn’t offer the same ease of transfer. Using the previously stated approach would outsource all power to the clients work devices. Also a BYOD policy could be enforced, however if they’re sensitive files then transfer would have to be restricted to only work devices(or an NDA, which typical IT professionals don't know how to obtain).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+Scenario 2 – Corporate R&D Lab
+A corporate research and development lab needs a new network.  Their current one that is
+100Base-TX Ethernet connected to hubs works OK and meets their needs, but the company has decided to make an investment in network infrastructure to better equip itself to compete.  The R & D work involves a lot of different kinds of work both with designers at fixed workstations and more free-form lab spaces as people move around and work to construct, test, and analyze data about new prototypes.  There are also some new testing and measurement devices that they will be getting which can feed data directly into a computer system that they would like to be using. Security is a concern due to corporate espionage always being a possibility.
+Summary Matrix:
+ 
+	Yes/No
+	 
+	 
+	Wired network?
+	 Yes
+	What standard?
+	 Fast Ethernet 
+	Wireless network?
+	 Yes
+	Cable type?
+	 Cat 6 or better 
+	Are there any other important factors or technologies needed?
+A simple RDP server could be set up on the receiving computer for the new testing and measuring devices. This would allow all users in the lab to be able to connect to it so 1 person wouldn't need to be on it at a given time. A VPN could be used for security enforcement, although it would slow the network traffic down quite a bit. 
+Justification:
+A Fast Ethernet connection would likely provide sufficient performance at a good price to performance ratio. So, if you are on a budget or and do not want to use the more expensive Gigabit Ethernet this would be a good option for you. A little more money can be spent on Gigabit Ethernet if that is what is wanted as well or even if a cheaper option like Etherent could work but would not be as efficient. Either way, be sure to install cable that would support either such as Category 6. That way in the future if the network ever needed an easy upgrade without the need to redo the wiring. At the price to performance ratio fast ethernet with cat 6 or higher cables I believe is the best option for this scenario. 
+        Both laptops and desktops can connect through RDP to address the testing and measurement devices, which is useful for developing a connected infrastructure for the team to depend on. The perks of RDP are endless, uploading files remotely, interacting with files directly, having its own file storage, and many more. The only downside would be having issues with bit rate capping at the network level, which would inhibit super high resolution and higher response time. These issues wouldn’t matter for the researchers unless they were working with 4k images/video or physics animations that required precision monitoring. 
+        An Alternative for RDP would be SSH, both are used to remotely access machines and other servers. SSH wouldn’t be the best alternative because it would force the researchers to use a command line interface. SSH provides a secure shell for text based management while RDP provides remote GUI access for computer management. From a user perspective, RDP provides a windows GUI experience making servers more accessible to a wider range of workers. SSH is more technically demanding for end users, making RDP the right choice. 
+.

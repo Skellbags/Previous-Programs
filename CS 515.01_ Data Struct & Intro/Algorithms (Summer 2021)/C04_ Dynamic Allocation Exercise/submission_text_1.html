@@ -1,0 +1,3 @@
+<p>&nbsp;</p>
+<pre> #include &lt;iostream&gt;<br>   using namespace std;<br> <br>   void populate(int *arrayToPopulate, int arraySize);<br> <br>   int main()<br>   {<br>     int * ptr;<br>     ptr = new int[100];<br> <br>    populate(ptr, 100);<br> <br>    for(int i=0; i&lt;100; i++)<br>      cout &lt;&lt; ptr[i] &lt;&lt; endl;<br> <br>    delete [] arr;<br>    return 0;<br>  }<br> <br>  void populate(int *arr, int size)<br>  {<br>    for(int i=0; i&lt;size; i++)<br>    {<br>      arr[i]=rand()%100+1;<br>    }<br> <br>   </pre>
+<p>&nbsp;</p>

@@ -1,0 +1,166 @@
+################Views################
+select 
+    c.name country,
+    r.name region,
+    t.name continent,
+    area
+from countries c
+inner join regions r 
+    using (region_id)
+inner join continents t 
+    using (continent_id)
+order by country;
+create view country_details 
+as
+select 
+    c.name country,
+    r.name region,
+    t.name continent,
+    area
+from countries c
+inner join regions r 
+    using (region_id)
+inner join continents t 
+    using (continent_id)
+order by country;
+################Creating Views################
+create view country_info(
+    country,
+    region,
+    continent,
+    area
+)
+as
+select 
+    countries.name, 
+    regions.name,
+    continents.name,
+    area
+from countries
+inner join regions 
+    using (region_id)
+inner join continents 
+    using (continent_id);
+create view continent_areas
+as
+    select 
+        continent, 
+        sum(area) total_area
+    from 
+        country_info
+    group by 
+    continent;
+create view areas
+as
+select 
+    continents.name continent,
+    regions.name region,
+    sum(area) total_area
+from countries
+inner join regions 
+    using (region_id)
+inner join continents 
+    using (continent_id)
+group by 
+    region, 
+    continent;
+################Drop Views################
+create view country_official_languages
+as
+select 
+    language, 
+    name country
+from 
+    countries
+inner join country_languages 
+    using (country_id)
+inner join languages 
+    using (language_id)
+where 
+    country_languages.official = 1;
+create view stat_2017 as
+select 
+    name, 
+    population, 
+    gdp 
+from countries
+inner join country_stats 
+    using (country_id) 
+where year = 2017;
+
+create view stat_2018 as
+select 
+    name, 
+    population, 
+    gdp 
+from countries
+inner join country_stats 
+    using (country_id) 
+where year = 2018;
+################Subqueries################
+select country_id 
+from countries 
+where area > 5000000;
+select 
+    name, 
+    area
+from countries
+where country_id in (12,15,31,38,42,182,224)
+order by 
+    area, 
+    name;
+select 
+    name, 
+    area
+from 
+    countries
+where country_id in (
+    select 
+        country_id 
+    from 
+       countries 
+    where 
+        area > 5000000
+)
+order by 
+    area, 
+    name;
+select country_id 
+from countries 
+where area > 5000000
+select max(area) 
+from countries;
+select *
+from countries
+where area = (
+    select max(area)
+    from countries
+);
+select 
+    avg(population), 
+    avg(gdp) 
+from country_stats
+where year = 2018;
+select 
+    name
+from 
+    country_stats
+inner join countries 
+    using (country_id)
+where 
+    year = 2018 and 
+    (population, gdp) > (
+        select 
+            avg(population), 
+            avg(gdp) 
+        from country_stats
+        where year = 2018)
+order by 
+    NAME;
+select avg(region_area)
+from (
+    select sum(area) region_area
+    from countries
+    group by region_id
+) t;
+#Ryan J. Skelly, Rjs1070, 3/22/22, Exercise04, Query input using HeidiSQL 

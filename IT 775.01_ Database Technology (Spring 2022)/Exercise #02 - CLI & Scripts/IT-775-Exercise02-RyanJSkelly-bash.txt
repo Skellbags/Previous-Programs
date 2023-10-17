@@ -1,0 +1,6 @@
+#!/bin/bash
+uname -a > pt1.txt
+lshw > pt2.txt
+cat pt1.txt pt2.txt > IT-775-Exercise02-RyanJSkelly-Scriptout.txt
+rm pt1.txt
+rm pt2.txt

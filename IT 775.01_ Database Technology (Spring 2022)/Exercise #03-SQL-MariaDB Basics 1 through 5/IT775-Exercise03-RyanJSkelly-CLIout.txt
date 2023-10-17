@@ -1,0 +1,476 @@
+################Querying Data################
+select name
+from countries;
+select 
+    name, 
+    area, 
+    national_day
+from 
+    countries;
+select
+    country_id,
+    name,
+    area,
+    national_day,
+    country_code2,
+    country_code3,
+    region_id
+from
+    countries;
+select *
+from countries;
+select NOW();
+
+################Sorting Data################
+select 
+    name, 
+    area
+from 
+    countries
+order by NAME;
+select 
+    name, 
+    area
+from 
+    countries
+order by 
+    name;
+select 
+    name, 
+    area
+from 
+    countries
+order by 
+    name desc;
+select 
+    name, 
+    region_id
+from 
+    countries
+order by 
+    region_id, 
+    name;
+select 
+    name, 
+    national_day
+from 
+    countries
+order by 
+    national_day;
+select 
+    name, 
+    national_day
+from 
+    countries
+order by 
+    national_day desc;
+
+################Where################
+select 
+    name, 
+    area, 
+    region_id
+from 
+    countries
+where 
+    region_id = 2
+order by
+    name;
+select 
+    name, 
+    area
+from 
+    countries
+where 
+    area > 2000000
+order by 
+    area;
+select 
+    name, 
+    area, 
+    region_id
+from 
+    countries
+where 
+    region_id = 2 and 
+    area > 2000000
+order by 
+    name;
+select 
+    name, 
+    area, 
+    region_id
+from 
+    countries
+where 
+    region_id = 2 or 
+    area > 2000000
+order by 
+    name;
+select 
+    name, 
+    area
+from 
+    countries
+where 
+    area between 1001449 
+        and 1566500
+order by 
+    area;
+select 
+    name, 
+    country_code2
+from 
+    countries
+where 
+    country_code2 in ('US','FR','JP')
+order by 
+    name;
+select 
+    name
+from 
+    countries
+where 
+    name like 'J%'
+order by 
+    name;
+
+################Distinct################
+select 
+    year
+from 
+    country_stats
+order by 
+    year;
+select 
+    distinct year 
+from 
+    country_stats
+order by   
+    year desc;
+select 
+    distinct national_day
+from 
+    countries;
+
+################Between################
+select 
+    name, 
+    area 
+from 
+    countries
+where 
+    area between 1566500 
+        and 2780400
+order by 
+    area;
+select 
+    name, 
+    area 
+from 
+    countries
+where 
+    area >= 1566500 and
+    area <= 2780400
+order by 
+    area;
+select 
+    name, 
+    national_day 
+from 
+    countries
+where 
+    national_day 
+        between '1945-08-17' 
+            and '1953-11-09'
+order by 
+    national_day;
+select 
+    name, 
+    national_day 
+from 
+    countries
+where 
+    national_day 
+        not between '1945-08-17' 
+            and  '1953-11-09'
+order by 
+    national_day;
+
+################In################
+select
+    name,
+    region_id
+from 
+    countries
+where
+    region_id in (1,2,3)
+order by 
+    name;
+select
+    name,
+    region_id
+from 
+    countries
+where
+    region_id = 1 or 
+    region_id = 2 or 
+    region_id = 3
+order by 
+    name; 
+select 
+    region_id 
+from 
+    regions
+where 
+    name like '%Asia%';
+select 
+    name, 
+    region_id
+from 
+    countries
+where
+    region_id in (
+        select 
+            region_id
+        from 
+            regions
+        where 
+            name like '%Asia%'
+
+)
+order by NAME;
+
+################Like################
+select 
+    name
+from 
+    countries
+where 
+    name like 'd%'
+order by
+    name;
+select 
+    name
+from 
+    countries
+where 
+    name like '%tan'
+order by 
+    name;
+select 
+    name
+from 
+    countries
+where 
+    name like '%state%'
+order by 
+    name;
+select 
+    name
+from 
+    countries
+where 
+    name like '_n%'
+order by 
+    name;
+select 'V_2019' like '%\_20%';
+select 'V_2019' like '%#_20%' ESCAPE '#';
+
+################Limit################
+select 
+    name
+from 
+    countries
+order by 
+    name;
+select 
+    name
+from 
+    countries
+order by 
+    name
+limit 5;
+select 
+    name
+from 
+    countries
+order by 
+    name
+limit 10 offset 5;
+select 
+    name
+from 
+    countries
+order by 
+    name
+limit 5, 10;
+select
+    name,
+    area
+from
+    countries
+order by 
+    area desc
+limit 10;
+select
+    name,
+    area
+from
+    countries
+order by 
+    area, 
+    name
+limit 1,1;
+################Is Null################
+select 
+    name, 
+    national_day 
+from 
+    countries
+where 
+    national_day is null
+order by
+    name;
+select 
+    name, 
+    national_day 
+from 
+    countries
+where 
+    national_day is not null
+order by
+    name;
+
+################Join################
+select 
+    g.guest_id, 
+    g.name, 
+    v.vip_id, 
+    v.name
+from guests g
+inner join vips v 
+    on v.name = g.name;
+select 
+    g.guest_id, 
+    g.name, 
+    v.vip_id, 
+    v.name
+from guests g
+inner join vips v using (NAME);
+select 
+    g.guest_id, 
+    g.name, 
+    v.vip_id, 
+    v.name
+from guests g
+left join vips v 
+    on v.name = g.name;
+select 
+    g.guest_id, 
+    g.name, 
+    v.vip_id, 
+    v.name
+from guests g
+left join vips v
+    using(name);
+select 
+    g.guest_id, 
+    g.name, 
+    v.vip_id, 
+    v.name
+from guests g
+right join vips v 
+    on v.name = g.name;	
+select 
+    g.guest_id, 
+    g.name, 
+    v.vip_id, 
+    v.name
+from guests g
+cross join vips v;
+
+################Group By################
+select 
+    region_id, 
+    count(country_id) 
+from 
+    countries
+group by 
+    region_id
+order by 
+    region_id;
+select 
+    regions.name, 
+    count(country_id) country_count
+from 
+    countries
+inner join regions using (region_id)
+group by 
+    regions.name
+order by 
+    regions.name;
+select 
+    regions.name region, 
+    sum(area) region_area
+from 
+    countries
+inner join regions 
+    using (region_id)
+group by
+    regions.name
+order by 
+    region_area desc;
+select 
+    regions.name region, 
+    min(area) smallest_country_area,
+    max(area) largest_country_area
+from countries
+inner join regions using (region_id)
+group by 
+    regions.name
+order by 
+    regions.name;
+select 
+    regions.name region, 
+    avg(area) avg_area
+from 
+    countries
+inner join regions 
+    using (region_id)
+group by 
+    regions.name
+order by 
+    avg_area desc;
+
+################Having################
+select 
+    regions.name region,
+    count(country_id) country_count
+from 
+    countries
+inner join regions 
+    using (region_id)
+group by 
+    (regions.name)
+having 
+    count(region_id) > 10
+order by 
+    country_count desc;
+select 
+    regions.name region,
+    count(country_id) country_count,
+    sum(area) area
+from 
+    countries
+inner join regions 
+    using (region_id)
+group by 
+    (regions.name)
+having 
+    count(region_id) > 10 and 
+    area > 1000000
+order by 
+    area desc,
+    country_count desc;
+#Ryan J. Skelly, Rjs1070, 3/10/22, Exercise03, Query input using HeidiSQL 

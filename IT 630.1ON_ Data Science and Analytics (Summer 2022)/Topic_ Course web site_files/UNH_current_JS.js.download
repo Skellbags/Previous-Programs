@@ -1,0 +1,219 @@
+/*
+*This is the js used on unh.instructure.com 
+*as of 07.25.23 -SMM
+*/
+/*
+* Adds code to insert help text on Grade Publishing window
+* and hides the grade publishing functionality.
+* Update gradingOpen to false to hide sync grades button
+* and update text on page
+* Applies to all users
+*/
+$(document).ready(function() {
+    /* 
+    * GPB tab custom text
+    * Set gradingOpen to true during open grading period
+    * Set gradingOpen to false when grading has closed
+    * Applies to all users
+    */
+   var gradingOpen = true; //Change to false when grading has closed
+   if (gradingOpen){
+    $('#tab-grade-publishing').append('<p id="tab-grade-publishing"><br></br><font size="4"><strong>Prior to submitting grades to Webcat, please review the information below.</font></strong><br></br><font size="3"><strong>1. Confirm you have no missing grades in your gradebook.</strong><br>For more information about how to prepare your gradebook and publish grades to Webcat please view the KB article here: <a href="https://td.unh.edu/TDClient/KB/ArticleDet?ID=1344" target="_blank">https://td.unh.edu/TDClient/KB/ArticleDet?ID=1344</a><br></br><strong>2. Verify no errors are listed in the grade sync confirmation email.</strong><br>If you did receive an error on submission, please review this KB article that explains the error codes and gives you information on how to fix the errors: <a href="https://td.unh.edu/TDClient/KB/ArticleDet?ID=1346" target="_blank">https://td.unh.edu/TDClient/KB/ArticleDet?ID=1346</a><br></br><strong>3. Review all grades in Webcat for accuracy.</strong><br>If you have students with any of the following; <strong>(IC)</strong> incomplete, <strong>(AU)</strong>  auditing your course, or <strong>(AF)</strong> administrative failure, you will need to enter those directly within Webcat after you publish grades from myCourses. <a href="https://unhssomgr.unh.edu/ssomanager/saml/login?relayState=/c/auth/SSB" target="_blank">Click here to visit Webcat.</a></font></p>');
+   } else {
+    /*
+    * GPB tab custom text when Grades have closed
+    * Comment out the next section of code to re-open grading
+    */
+    $('#tab-grade-publishing').append('<p id="tab-grade-publishing"><br></br><font size="4"><strong>The deadline for submitting grades for the current term has passed.</font></strong><br></br><font size="3">If you need further assistance please review the Faculty section "Entering Grades in Webcat" at <a href="https://www.unh.edu/registrar/grade-rules" target="_blank">https://www.unh.edu/registrar/grade-rules</a> for steps to submit manually or contact the Registrar Office at (603) 862-1500.</font></p>');
+    $('#tab-grade-publishing').append('<p id="tab-grade-publishing"><br></br><font size="4"><strong>Your grades cannot be submitted to Webcat at this time. Please check back later.</font></strong><br></br>');
+    /*
+    * hides the "Sync grades to SIS button" and the associated text
+    */
+    $('#publish_grades_link').hide();
+    $('#publish_grades_messages').hide();
+   }
+});
+
+/*
+* Updates collaboration link to text describing Office 365 use over Google Drive. 
+* Applies to all users
+*/
+$(document).ready(function(){
+	$('#no_collaborations_message').hide();
+	$('.collaborations-header.clearfix').append('<p id="collaborations-header.clearfix"><br></br><strong>You can now use UNH Office 365 to collaborate.</strong>  <br></br>Ensure that the "Collaborate using:" selector is set to Office 365 and click the "Log In" button. If you have a current collaboration and do not see the drop-down, click on the "+Start a new collaboration" button in the upper right to begin. <br></br>To learn more about the Office 365 tool or for login support, visit the following knowledgebase articles: <br></br><a href="https://td.unh.edu/TDClient/KB/ArticleDet?ID=1438" target="_blank">How to Login with Office 365 Account</a><br></br><a href="https://td.unh.edu/TDClient/KB/ArticleDet?ID=1440" target="_blank">Collaborating with Office 365</a></p>');
+	// get select option and reverse order
+	var $sel = $('#collaboration_collaboration_type'),
+	$o = $sel.children().toArray().reverse();
+	// re-set the select with new ordered options
+	$sel.append($o);
+	// force selection of first Office 365 option
+	$("#collaboration_collaboration_type").val($("#collaboration_collaboration_type option:first").val()).trigger('change');
+});
+
+//Adds blurb to not change favorited email
+$('.email_channels').before('<p style="color:red; font-weight:bold; text-align:center; margin-bottom:.5em;">IMPORTANT: Do not change the default email (denoted by <i class="icon-star standalone-icon" alt="Set email address as default" aria-hidden="true" title="Set email address as default"></i>)</p><p style="color:red; font-weight:bold; text-align:center; margin-bottom:.5em;">This is &#60;username&#62;&#64;unh.edu</username></p><p style="color:red; font-weight:bold; text-align:center; margin-bottom:.5em;">Example:jd1099&#64;unh.edu</p>')
+
+/*
+ * v1 hides conclude, delete, and reset course if user != admin *08/14*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+$(document).ready(function () {
+    if ($.inArray('admin', ENV['current_user_roles']) == -1) {
+        $("a[href*='confirm_action?event=conclude']").hide(); // Needs code on beta
+        $("a.Button.Button--icon-action.edit_section_link").hide(); //Used to hide pencil icon, appears for custom sections and not sections added through SIS
+        $('a.cant_delete_section_link').hide(); //Removes X for deleting SIS sections
+        $('.delete_section_link').hide(); //Removes pencil icon
+        $('#add_section_form').hide(); //works on beta, hides whole add section div
+        $('input#course_section_name').hide(); //works on beta but unecessary because div with button is hidden by previous line.
+        $('#add_section_form > button').hide(); //works on beta, redundant to previous line 9.22.22
+        $('.unenroll_user_link').hide(); //Hides "Remove user from section" button that appears on hover
+        //hides edit section button on section info page
+        $('.btn.button-sidebar-wide.edit_section_link').hide(); //Added 10.31.22 to hide edit section button on section details page
+        //hides the conferences course menu item from all users
+        $('a.conferences').hide();  //Does not seem to be valid tag anymore 9.22.22
+        //hides conferences from course navigation settings
+             //Does not seem to be valid tag anymore 9.22.22
+        //hides publish_final_grade from module edit settings
+        $('#publish_final_grade').hide(); //Does not seem to be valid tag anymore 9.22.22
+        $('[for="publish_final_grade"]').hide(); //Does not seem to be valid tag anymore 9.22.22
+        //hides treat ungraded as 0
+        $('#include-ungraded-list-item').hide(); //Does not seem to be valid tag anymore 9.22.22
+    }
+});
+
+/*
+* Modifies the +People dialog box
+* First portion of the code looks for a selector(#addusers) to load
+* Once loaded, it modifies text of pop-box to reflect UNH settings
+*/
+$(document).ready(function () {
+    var adminOnly = false; // change this to 'true' if you don't want admins to see the edits below.
+
+    //The function below checks to see that an element has rendered. When called
+    //the function will look for a particular selector. Do not remove.
+    function onElementRendered(selector, cb, _attempts) {
+        var el = $(selector);
+        _attempts = ++_attempts || 1;
+        if (el.length) return cb(el);
+        if (_attempts == 60) return;
+        setTimeout(function () {
+            onElementRendered(selector, cb, _attempts);
+        }, 250);
+    }
+
+    // section to modify +People dialog box
+    onElementRendered('#addUsers', function () {
+        $('#addUsers').on('click', function () {
+            //Tests for adminOnly to be true
+            if (adminOnly) {
+                //Checks whether currently in a courwse and that user is not an admin
+                if (window.location.pathname.indexOf('courses') > -1 && ENV.current_user_roles.indexOf('admin') == -1) {
+                    //Line below hides default "Example" text, broken 10.31.22
+                    $('.addpeople__peoplesearch > fieldset:nth-child(2) > div:nth-child(1)').hide();
+                    //Line below hides "Add user by" help text, broken 10.31.22
+                    $('._3ABavlhRvBS3_CNOC1Hh2W > span:nth-child(1)').hide();
+                    //Line below hides "Add user by" help text line break, not working 10.31.22
+                    //Can use line $(".bNerA_bGBk.bNerA_oUBk.bNerA_dBtH.bNerA_bBOa.bNerA_buDT.bNerA_DpxJ").hide();
+                    //to hide, why are we hiding it?
+                    $('._3ABavlhRvBS3_CNOC1Hh2W > br:nth-child(2)').hide();
+                    //Line below will hide the "Email Address" and radio on the "Add People" screen on the people page within a course, works 10.31.22
+                    $('[for="peoplesearch_radio_cc_path"]').hide();
+                    //Line below will change the text for "Login ID" on the "Add People" screen on the people page within a course, works 10.31.22
+                    $('[for="peoplesearch_radio_unique_id"] span:nth-child(2)').text('UNH username (ex: abc123, janedoe)');
+                    $('#peoplesearch_radio_unique_id').click();
+                    //Line below will change the text for "SIS ID" on the "Add People" screen on the people page within a course, works 10.31.22
+                    $('[for="peoplesearch_radio_sis_user_id"] span:nth-child(2)').text('USNH ID (ex: 999999999, 912345678)');
+                    //hide help text when no radio button selected and text entered into editor
+                    $('._32RwrqVHrJ3SxiV6louKDp._2mUFZOa0M2F0XE2YLeVw7E').hide(); //Does not seem to do anything 10.31.22
+                }
+            // If statement tests whether it is inside a course, -1 = not in a course
+            } else if (window.location.pathname.indexOf('courses') > -1) {
+                //Line below hides default "Example" text
+                $('.addpeople__peoplesearch > fieldset:nth-child(2) > div:nth-child(1)').hide(); //does not seem to hide anythin
+                //Line below hides "Add user by" help text
+                $('._3ABavlhRvBS3_CNOC1Hh2W > span:nth-child(1)').hide();
+                //Line below hides "Add user by" help text line break
+                $('._3ABavlhRvBS3_CNOC1Hh2W > br:nth-child(2)').hide();
+                //Line below will hide the "Email Address" on the "Add People" screen on the people page within a course
+                $('[for="peoplesearch_radio_cc_path"]').hide();
+                //Line below will change the text for "Login ID" on the "Add People" screen on the people page within a course
+                $('[for="peoplesearch_radio_unique_id"] span:nth-child(2)').text('UNH Username (ex: abc123, zyx0987)');
+                $('#peoplesearch_radio_unique_id').click();
+                //Line below will change the text for "SIS ID" on the "Add People" screen on the people page within a course
+                $('[for="peoplesearch_radio_sis_user_id"] span:nth-child(2)').text('USNH 9-Digit ID (ex: 912345678)');
+                //hide help text when no radio button selected and text entered into editor
+                $('._32RwrqVHrJ3SxiV6louKDp._2mUFZOa0M2F0XE2YLeVw7E').hide();
+                //Adds text to Add People dialog box
+                $('.blnAQ_drOs').after('<p style="color:red; font-weight:bold;">Note: Adding students through the +People button does not officially enroll them in your course.</p>');
+                //Updates text in placeholder box, id changes 
+                var updateID = document.getElementsByClassName("chpSa_ycrn");
+                for (var i = 0, n = updateID.length; i < n; ++i) {
+                    updateIDText = updateID[i].id;
+                }
+                document.getElementById(updateIDText).placeholder = "abc1234, zyx0987";
+            }
+        });
+        $('#addpeople_back').live('click', function () {
+            onElementRendered('[for="peoplesearch_radio_unique_id"] span:nth-child(2)', function (el) {
+                $('[for="peoplesearch_radio_cc_path"]').hide();
+                $('[for="peoplesearch_radio_unique_id"] span:nth-child(2)').text('UNH Username (ex: abc123, janedoe)');
+                $('#peoplesearch_radio_unique_id').click();
+                $('[for="peoplesearch_radio_sis_user_id"] span:nth-child(2)').text('USNH 9-Digit ID (ex: 999999999, 912345678)');
+                $('.addpeople__peoplesearch > fieldset:nth-child(2) > div:nth-child(1)').hide();
+                $('._3ABavlhRvBS3_CNOC1Hh2W > span:nth-child(1)').hide();
+                $('._3ABavlhRvBS3_CNOC1Hh2W > br:nth-child(2)').hide();
+                $('._32RwrqVHrJ3SxiV6louKDp._2mUFZOa0M2F0XE2YLeVw7E').hide();
+            });
+        });
+    });
+});
+
+/*
+* all lines of code below are necessary for the Blue Connector deep integration with Canvas.
+* Added new code provided by vendor. brb. 6/14/2022.
+*/
+
+var BLUE_CANVAS_SETUP = {
+    connectorUrl: "https://unh.bluera.com/unhBlueConnector/",
+    canvasAPI: "https://mycourses.unh.edu",
+    domainName: "com.explorance",
+    consumerID: "uXQv~NkXsjFIvTmkGmqAXQ==",
+    defaultLanguage: "en-us"
+},
+BlueCanvasJS = document.createElement("script");
+BlueCanvasJS.setAttribute("type", "text/javascript");
+BlueCanvasJS.setAttribute("src", "https://unh.bluera.com/unhBlueConnector//Scripts/Canvas/BlueCanvas.min.js");
+document.getElementsByTagName("head")[0].appendChild(BlueCanvasJS);
+
+
+//Chatbot placement in Canvas
+NewChat = document.createElement("script");
+NewChat.setAttribute("type","text/javascript"); 
+NewChat.setAttribute("src","https://ai.ocelotbot.com/embed/standard/02cc70e4-7da0-4603-8ca8-14118463ba81"); 
+currentPage = document.title;
+if (currentPage == "Dashboard"){
+    document.getElementsByTagName("body")[0].appendChild(NewChat);
+}
+// // UNH Master Container
+// // START Google Tag Manager BODY section
+// (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-56W32WF');
+
+// // END Google Tag Manager HEAD section 
+
+// var googleTagManager = '<!-- Google Tag Manager (noscript) -->' +
+// '<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56W32WF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>' +
+// '<!-- End Google Tag Manager (noscript) -->' +
+
+// // UNH myUNH Container
+// START Google Tag Manager BODY section
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PWNHJ98');
+
+// END Google Tag Manager HEAD section
+
+var googleTagManager = '<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWNHJ98" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>' +
+'<!-- End Google Tag Manager (noscript) -->';
+$('body').prepend(googleTagManager);
+
+// END Google Tag Manager BODY section

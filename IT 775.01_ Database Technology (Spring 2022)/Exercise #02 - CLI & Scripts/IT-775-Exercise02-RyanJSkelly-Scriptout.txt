@@ -1,0 +1,46 @@
+Linux LAPTOP-3RU4T2LD 5.10.16.3-microsoft-standard-WSL2 #1 SMP Fri Apr 2 22:23:49 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+laptop-3ru4t2ld
+    description: Computer
+    width: 64 bits
+    capabilities: smp vsyscall32
+  *-core
+       description: Motherboard
+       physical id: 0
+     *-memory
+          description: System memory
+          physical id: 0
+          size: 12GiB
+     *-cpu
+          product: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
+          vendor: Intel Corp.
+          physical id: 1
+          bus info: cpu@0
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl xtopology cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti ssbd ibrs ibpb stibp fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves flush_l1d arch_capabilities
+     *-pnp00:00
+          product: PnP device PNP0b00
+          physical id: 2
+          capabilities: pnp
+          configuration: driver=rtc_cmos
+  *-network:0 DISABLED
+       description: Ethernet interface
+       physical id: 1
+       logical name: bond0
+       serial: a2:fa:4f:07:69:54
+       capabilities: ethernet physical
+       configuration: autonegotiation=off broadcast=yes driver=bonding driverversion=5.10.16.3-microsoft-standard-WS firmware=2 link=no master=yes multicast=yes
+  *-network:1 DISABLED
+       description: Ethernet interface
+       physical id: 2
+       logical name: dummy0
+       serial: 26:bf:93:28:70:4a
+       capabilities: ethernet physical
+       configuration: broadcast=yes driver=dummy driverversion=5.10.16.3-microsoft-standard-WS
+  *-network:2
+       description: Ethernet interface
+       physical id: 3
+       logical name: eth0
+       serial: 00:15:5d:8c:6d:a5
+       size: 10Gbit/s
+       capabilities: ethernet physical
+       configuration: autonegotiation=off broadcast=yes driver=hv_netvsc driverversion=5.10.16.3-microsoft-standard-WS duplex=full firmware=N/A ip=172.20.172.105 link=yes multicast=yes speed=10Gbit/s

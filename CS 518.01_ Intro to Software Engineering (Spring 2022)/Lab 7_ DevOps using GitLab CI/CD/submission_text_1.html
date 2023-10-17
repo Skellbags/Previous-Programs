@@ -1,0 +1,37 @@
+<p><span>image: python:latest</span></p>
+<pre></pre>
+<p><span>stages:</span></p>
+<p><span>&nbsp;&nbsp;- build</span></p>
+<p><span>&nbsp;&nbsp;- test</span></p>
+<p><span>&nbsp;&nbsp;- deploy</span></p>
+<pre></pre>
+<p><span>build-job:</span></p>
+<p><span>&nbsp;&nbsp;stage: build</span></p>
+<p><span>&nbsp;&nbsp;script:</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;- echo "build-job completed"</span></p>
+<p><span>&nbsp;&nbsp;tags:</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;- docker</span></p>
+<pre></pre>
+<p><span>test-job1:</span></p>
+<p><span>&nbsp;&nbsp;stage: test</span></p>
+<p><span>&nbsp;&nbsp;after_script:</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;- echo "test-job1 completed"</span></p>
+<p><span>&nbsp;&nbsp;script:</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;- python3 -m unittest discover</span></p>
+<p><span>&nbsp;&nbsp;tags:</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;- test-runner</span></p>
+<pre></pre>
+<p><span>test-job2:</span></p>
+<p><span>&nbsp;&nbsp;stage: test</span></p>
+<p><span>&nbsp;&nbsp;script:</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;- echo "test-job2 completed"</span></p>
+<p><span>&nbsp;&nbsp;tags:</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;- test-runner</span></p>
+<pre></pre>
+<p><span>deploy-job:</span></p>
+<p><span>&nbsp;&nbsp;stage: deploy</span></p>
+<p><span>&nbsp;&nbsp;script:</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;- echo "deploy-job completed"</span></p>
+<p><span>&nbsp;&nbsp;tags:</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;- production</span></p>
+<pre><br><br></pre>

@@ -1,0 +1,26 @@
+/* IT 775-Assignment09-RyanJSkelly */
+
+/* 1 awardsview */
+CREATE VIEW awardsview(title, name, prize, state, earnings) AS
+SELECT book.title, author.name, award.prize, author.state, (book.price * book.units)
+FROM award INNER JOIN book ON book.isbn=award.isbn
+INNER JOIN author ON author.isbn=award.isbn;
+
+/* 2 awardsview2 */
+CREATE VIEW awardsview2(prize, totalEarnings) AS
+SELECT awardsview.prize, awardsview.earnings
+FROM awardsview;
+
+/* 3 addisonwesley */
+CREATE VIEW addisonwesley(title, name, earnings) AS
+SELECT book.title, author.name, (book.price * book.units)
+FROM author INNER JOIN book ON book.isbn=author.isbn
+WHERE author.name="Addison Wesley";
+
+/* 4 addisonwesley2 */
+CREATE VIEW addisonwesley2(name, totalEarnings, nbrPrizes) AS
+SELECT author.name, SUM(book.price * book.units), COUNT(award.prize)
+FROM author INNER JOIN book ON book.isbn=author.isbn
+INNER JOIN award ON award.isbn=author.isbn
+WHERE author.name="Addison Wesley";
+

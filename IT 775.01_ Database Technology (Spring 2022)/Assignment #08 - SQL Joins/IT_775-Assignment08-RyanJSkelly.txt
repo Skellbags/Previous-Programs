@@ -1,0 +1,36 @@
+/* IT 775-Assignment08-RyanJSkelly */
+
+/* 1 Author Location */
+SELECT book.title, author.name, author.city, author.state
+FROM author
+INNER JOIN book ON book.isbn=author.isbn
+WHERE (author.state="CA" AND author.city="Palo Alto") OR (author.state="NH" AND author.city="Exeter")  OR (author.state="TX" AND author.city="Arlington");
+
+/* 2 Authored or Coauthored */
+SELECT book.title, author.name 
+FROM author
+LEFT JOIN book ON book.isbn=author.isbn
+WHERE (author.isbn=book.isbn AND author.name="Chopra") OR (author.isbn=book.isbn AND author.name="Dr. Phil");
+
+/* 3 Women Buying Books */
+SELECT book.title, sales.age, sales.income FROM sales
+RIGHT JOIN book ON book.isbn=sales.isbn
+WHERE ((gender='F') AND (age BETWEEN '35' AND '50') AND (income BETWEEN '60000' and '100000'));
+
+/* 4 Author Location */
+SELECT book.title, book.category, author.name, author.state, sales.age, sales.income FROM author
+INNER JOIN book ON book.isbn=author.isbn
+RIGHT JOIN sales on sales.isbn=author.isbn
+WHERE sales.state=author.state;
+
+/* 5 All Authors */
+SELECT book.title, book.category, author.name, author.state, sales.age, sales.income FROM author
+INNER JOIN book ON book.isbn=author.isbn
+RIGHT JOIN sales on sales.isbn=author.isbn
+WHERE book.isbn=author.isbn;
+
+/* 6 Women Buying Books  */
+SELECT author.name, book.title, book.category, award.prize FROM author
+LEFT JOIN book ON book.isbn=author.isbn
+LEFT JOIN award on award.isbn=author.isbn
+WHERE book.isbn=author.isbn;

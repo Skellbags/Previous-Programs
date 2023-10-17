@@ -1,0 +1,28 @@
+/* IT 775-Assignment07-RyanJSkelly */
+
+/* 1 Price of Mysteries, Ascending */
+SELECT title, price FROM book
+WHERE category="mystery" ORDER BY price;
+
+/* 2 Technical Total Income */
+SELECT title, price * units FROM book
+WHERE category="Technical" ORDER BY (price * units);
+
+/* 3 Contains DB or SQL */
+SELECT title, publisher FROM book 
+WHERE title LIKE "%sql%" 
+OR title LIKE "%database%";
+
+/* 4 Author Location */
+SELECT name, city, state FROM author
+WHERE (state="CA" AND city="Palo Alto")
+OR (state="NH" AND city="Exeter") 
+OR (state="TX" AND city="Arlington");
+
+/* 5 Authored or Coauthored  */
+SELECT author.isbn, author.name FROM author, book
+WHERE (author.isbn=book.isbn AND author.name="Chopra") OR (author.isbn=book.isbn AND author.name="Dr. Phil");
+
+/* 6 Women Buying Books  */
+SELECT isbn, age, income FROM sales
+WHERE ((gender='F') AND (age BETWEEN '35' AND '50') AND (income BETWEEN '60000' and '100000'));
